@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing</title>
+</head>
+<body>
+    <h1>Image Processing</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Process Image</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('/process', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.text();
+                document.getElementById('result').innerText = result;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
