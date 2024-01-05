@@ -4,25 +4,34 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 const routes = [
     {
         path: '/',
-        component: () => import('../components/MainMenu.vue'),
-        //redirect: '/r1',  //重定向，访问/a3立即跳转到/a3/student
+        component: () => import('../components/log-in.vue')
+    },
+    {
+        path: '/menu',
+        component: () => import('../components/MainMenu.vue'),  
         children: [
+           
+           
             {
-                path: 'r1',
-                component: () => import('../myMain.vue')
-
-            },
-            {
-                path: 'r2',
-                component: () => import('../components/myTest.vue')
-            },
-            {
-                path: 'test',
-                component: () => import('../components/MyTest2.vue')
+                path: 'menu2',
+                component: () => import('../components/menu-menu.vue'),
+                children: [
+                    {
+                        path: 'r1',
+                        component: () => import('../components/myTest.vue')
+                    },
+                    {
+                        path: 'r2',
+                        component: () => import('../components/SvmTest.vue')
+                    },
+                ]
             },
             
+           
+            
         ]
-    },
+    }
+    
 ]
 
 const router = createRouter({ 

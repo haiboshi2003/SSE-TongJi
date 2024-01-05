@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tsparticles/workspace": "github:matteobruni/tsparticles",
+    "ant-design-vue": "^4.0.8",
     "axios": "^1.6.2",
     "core-js": "^3.8.3",
     "element-plus": "^2.4.2",
